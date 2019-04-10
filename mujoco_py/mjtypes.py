@@ -4407,7 +4407,7 @@ class MjModelWrapper(object):
     
     @geom_rgba.setter
     def geom_rgba(self, value):
-        val_ptr = np.array(value, dtype=np.float64).ctypes.data_as(POINTER(c_float))
+	val_ptr = np.array(value, dtype=np.float32).ctypes.data_as(POINTER(c_float))
         memmove(self._wrapped.contents.geom_rgba, val_ptr, self.ngeom*4 * sizeof(c_float))
     
     @property
@@ -4957,7 +4957,7 @@ class MjModelWrapper(object):
     
     @hfield_data.setter
     def hfield_data(self, value):
-        val_ptr = np.array(value, dtype=np.float64).ctypes.data_as(POINTER(c_float))
+	val_ptr = np.array(value, dtype=np.float32).ctypes.data_as(POINTER(c_float))
         memmove(self._wrapped.contents.hfield_data, val_ptr, self.nhfielddata*1 * sizeof(c_float))
     
     @property
